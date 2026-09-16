@@ -1,0 +1,5 @@
+// JitPack multi-module AAR distribution root.
+// Source code lives in the private android-sdk repo; this repo only ships AARs.
+allprojects {
+    group = "com.github.hehesdk"
+}

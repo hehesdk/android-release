@@ -1,0 +1,8 @@
+rootProject.name = "android-release"
+
+include(":hehesdk")
+include(":adapter-admob-nextgen")
+include(":adapter-admob-legacy")
+include(":adapter-max")
+include(":adapter-topon")
+include(":adapter-tradplus")
