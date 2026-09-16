@@ -22,7 +22,7 @@ dependencyResolutionManagement {
 
 ## Dependencies
 
-Replace `VERSION` with a git tag (e.g. `0.2.3`).
+Replace `VERSION` with a git tag (e.g. `0.2.4`).
 
 ```kotlin
 // Core SDK (required)
@@ -49,4 +49,6 @@ implementation("com.github.hehesdk.android-release:adapter-tradplus:VERSION")
 
 Adapters are thin: they do **not** bundle HeHe SDK or mediation SDKs.
 
+## JitPack build
 
+This repo publishes prebuilt AARs via `maven-publish` (`./gradlew publishToMavenLocal`). See `jitpack.yml`.

@@ -1,2 +1,1 @@
-configurations.maybeCreate("default")
-artifacts.add("default", file("hehesdk.aar"))
+// AAR module — publishing configured in root build.gradle

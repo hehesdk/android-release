@@ -1,5 +1,32 @@
 // JitPack multi-module AAR distribution root.
-// Source code lives in the private android-sdk repo; this repo only ships AARs.
+// Source code lives in the private android-sdk / android-sdk-adapter repos; this repo only ships AARs.
+buildscript {
+    // Empty — modules apply maven-publish via plugins DSL / buildscript-free plugins block.
+}
+
 allprojects {
-    group = "com.github.hehesdk"
+    group = "com.github.hehesdk.android-release"
+    version = project.findProperty("version") ?: "unspecified"
+}
+
+subprojects {
+    apply plugin: "maven-publish"
+
+    afterEvaluate {
+        publishing {
+            publications {
+                release(MavenPublication) {
+                    groupId = rootProject.group
+                    artifactId = project.name
+                    version = rootProject.version
+                    // Each module ships a single prebuilt AAR next to its build.gradle.
+                    def aarFiles = project.fileTree(dir: project.projectDir, include: "*.aar").files
+                    if (aarFiles.isEmpty()) {
+                        throw new GradleException("No .aar found in ${project.projectDir}")
+                    }
+                    artifact(aarFiles.first())
+                }
+            }
+        }
+    }
 }
