@@ -1,6 +1,9 @@
 # HeHe Android SDK — public release artifacts (AAR only)
 
-Private source: `android-sdk`  
+Private sources:
+- `android-sdk` — core SDK
+- `android-sdk-adapter` — mediation adapters
+
 This repository is the **public** JitPack distribution channel. It contains release AARs only — no SDK source.
 
 ## Setup
@@ -46,10 +49,4 @@ implementation("com.github.hehesdk.android-release:adapter-tradplus:VERSION")
 
 Adapters are thin: they do **not** bundle HeHe SDK or mediation SDKs.
 
-## Publishing
 
-Built and tagged from the private `android-sdk` repo via:
-
-```bash
-./scripts/release.sh 0.2.4
-```
